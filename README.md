@@ -22,4 +22,7 @@ Tuomas Marttila
 +358 451 124 311  
 K8430@student.jamk.fi  
 
-## [Resurssit](https://jamkstudent-my.sharepoint.com/:f:/g/personal/m0313_student_jamk_fi/EjiknC1kdgZMhpSyOmg6zqkB4tHzEVkjJjoYFMrInDr6Ag?e=fNP4jv)
+## Resurssit ja viestintäkanavat
+[Dokumentaatio, resurssitaulukko yms](https://jamkstudent-my.sharepoint.com/:f:/g/personal/m0313_student_jamk_fi/EjiknC1kdgZMhpSyOmg6zqkB4tHzEVkjJjoYFMrInDr6Ag?e=fNP4jv)  
+[Nikkarit Slack-kanava](https://nikkaritworkspace.slack.com/)
+
