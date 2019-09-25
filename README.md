@@ -23,6 +23,6 @@ Tuomas Marttila
 K8430@student.jamk.fi  
 
 ## Resurssit ja viestintäkanavat
-[Dokumentaatio, resurssitaulukko yms](https://jamkstudent-my.sharepoint.com/:f:/g/personal/m0313_student_jamk_fi/EjiknC1kdgZMhpSyOmg6zqkB4tHzEVkjJjoYFMrInDr6Ag?e=fNP4jv)  
+[Dokumentaatio, resurssitaulukko yms](https://jamkstudent-my.sharepoint.com/:f:/g/personal/m0313_student_jamk_fi/EjiknC1kdgZMhpSyOmg6zqkBxWlEsKKfAtuqgPUsUwsKBQ?e=buBcrF)  
 [Nikkarit Slack-kanava](https://nikkaritworkspace.slack.com/)
 
