@@ -1,9 +1,17 @@
 import React from 'react';
-import Layout from './containers/Layout/Layout';
+//import Layout from './containers/Layout/Layout';
+import GraafiContainer from "./components/GraafiContainer"
+import InfoContainer from "./components/InfoContainer"
+import { Container } from "react-bootstrap"
 
 function App() {
   return (
-    <Layout/>
+    <>
+      <Container>
+        <GraafiContainer />
+        <InfoContainer />
+      </Container>
+    </>
   );
 }
 

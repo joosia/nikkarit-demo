@@ -1,6 +1,6 @@
 import React from 'react';
 import './Layout.module.css';
-import Testi from '../../components/Testi/Testi';
+//import Testi from '../../components/Testi/Testi';
 
 const layout = (props) => {
     return (
