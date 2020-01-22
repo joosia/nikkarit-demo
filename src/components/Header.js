@@ -8,12 +8,14 @@ const Header = () => {
       <Navbar className="banner mb-4" variant='dark' expand="lg">
          <Container>
             <Navbar.Brand href="/">
-               <img
-                  src="/bislenz_white.png"
-                  className="d-inline-block align-top"
-                  height="47px"
-                  alt="BisLenz logo"
-               />
+               <NavLink to="/">
+                  <img
+                     src="/bislenz_white.png"
+                     className="d-inline-block align-top"
+                     height="47px"
+                     alt="BisLenz logo"
+                  />
+               </NavLink>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse className='justify-content-end' id="basic-navbar-nav">
@@ -22,7 +24,7 @@ const Header = () => {
                      <FormControl type="text" placeholder="Etsi kaupunki" className="mr-sm-2" />
                      <Button variant="light"><i class="fas fa-search"></i></Button>
                      <Nav className="ml-4">
-                        <NavLink to="/home">LOGIN</NavLink>
+                        <NavLink to="/login">LOGIN</NavLink>
                      </Nav>
                   </Form>
                </Navbar.Text>
