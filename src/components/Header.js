@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Navbar, Form, Nav, Button, FormControl } from 'react-bootstrap'
-
+import { NavLink } from 'react-router-dom';
 
 
 const Header = () => {
@@ -22,7 +22,7 @@ const Header = () => {
                      <FormControl type="text" placeholder="Etsi kaupunki" className="mr-sm-2" />
                      <Button variant="light"><i class="fas fa-search"></i></Button>
                      <Nav className="ml-4">
-                        <Nav.Link href="#home">LOGIN</Nav.Link>
+                        <NavLink to="/home">LOGIN</NavLink>
                      </Nav>
                   </Form>
                </Navbar.Text>
