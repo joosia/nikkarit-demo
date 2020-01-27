@@ -16,6 +16,14 @@
   color: #61dafb;
 }
 
+.pink {
+  color: #FF00D6;
+}
+
+.blue {
+  color: #37D1E5;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
