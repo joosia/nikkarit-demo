@@ -22,7 +22,7 @@ const Header = () => {
                <Navbar.Text>
                   <Form inline>
                      <FormControl type="text" placeholder="Etsi kaupunki" className="mr-sm-2" />
-                     <Button variant="light"><i class="fas fa-search"></i></Button>
+                     <Button variant="light"><i className="fas fa-search"></i></Button>
                      <Nav className="ml-4">
                         <NavLink to="/login">LOGIN</NavLink>
                      </Nav>

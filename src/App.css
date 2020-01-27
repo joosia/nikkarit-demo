@@ -24,6 +24,18 @@
   color: #37D1E5;
 }
 
+.orange {
+  color: #FF7B5F;
+}
+
+.bislenz-blue {
+ color: #093E78;
+}
+
+.green {
+  color: #33DB51;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
