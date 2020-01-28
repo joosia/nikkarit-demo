@@ -36,8 +36,8 @@ const InfoContainer = ({ infoContainerData }) => {
                                 <Col className="orange text-center">{data.all}</Col>
                             </Row>
                             <Row>
-                                <Col className="blue text-center">{data.rudolf}</Col>
-                                <Col className="pink text-center">{data.airdna}</Col>
+                                <Col className="blue text-right">{data.rudolf}</Col>
+                                <Col className="pink text-left">{data.airdna}</Col>
                             </Row>
                             <Row>
                                 <Col className="text-center"><i className="fas fa-chevron-up green"></i> {data.change} %</Col>

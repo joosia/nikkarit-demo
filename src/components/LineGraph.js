@@ -1,18 +1,15 @@
-/* eslint-disable no-undef */
 import React from 'react';
-import { Spinner } from 'react-bootstrap'
 import { VictoryLine, VictoryScatter, VictoryChart, VictoryAxis, VictoryBar, VictoryLabel, VictoryZoomContainer } from 'victory';
 
 const LineGraph = ({ data, startDate, endDate }) => {
+   console.log(data)
 
    return (
       <>
-         {data.length === 0 &&
-            <Spinner animation="border" />
-         }
          {data.length > 0 &&
             <>
                <VictoryChart
+                  height={250}
                   scale={{ x: "time" }}
                   containerComponent={
                      <VictoryZoomContainer
@@ -23,7 +20,6 @@ const LineGraph = ({ data, startDate, endDate }) => {
                         }
                      />
                   }>
-                  <VictoryLabel text="Yöpymiset" x={225} y={30} textAnchor="middle" />
                   <VictoryBar
                      style={{ data: { fill: "#EDEDED" } }}
                      barRatio={25}
@@ -48,7 +44,6 @@ const LineGraph = ({ data, startDate, endDate }) => {
                   />
                   <VictoryAxis
                      dependentAxis
-                     label="Yöpymiset (lkm)"
                      style={{
                         axisLabel: { fontSize: 7, padding: 42 },
                         tickLabels: { fontSize: 8, padding: 5 },
