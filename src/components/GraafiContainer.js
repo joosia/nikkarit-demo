@@ -1,5 +1,9 @@
 import React from 'react'
+<<<<<<< HEAD
 import { Col, Row, Popover, OverlayTrigger } from 'react-bootstrap'
+=======
+import { Row } from 'react-bootstrap'
+>>>>>>> jesse
 
 const GraafiContainer = () => {
     return (
