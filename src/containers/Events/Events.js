@@ -7,22 +7,34 @@ import classes from './Events.module.css';
 class Events extends React.Component {
 
     state = {
-        url: "http://kalenteri.turku.fi/events/calendar",
+        url: "https://tapahtumainfo.fi/haku?kategoria=&pvm=03.02.2020+-+05.02.2020&kunta=turku&maakunta=&p=1",
         events: []
     }
 
     componentDidMount() {
-        this.ParseEvent('https://cors-anywhere.herokuapp.com/http://kalenteri.turku.fi/events/node/307620');
-        this.ParseEvent('https://cors-anywhere.herokuapp.com/http://kalenteri.turku.fi/events/node/303380');
-        this.ParseEvent('https://cors-anywhere.herokuapp.com/http://www.turku.fi/tapahtuma/pe-01032020-0900-ala-lyo-valokuvanayttely-naisiin-kohdistuva-vakivalta-aina-rikos')
+        this.GetEvents();
     }
 
     GetEvents() {
-        rp('https://cors-anywhere.herokuapp.com/' + this.state.url)
-        .then(response => {
+        rp('https://pacific-atoll-18652.herokuapp.com/' + this.state.url)
+        .then(html => {
+            let eventUrls = [];
             // console.log(response);
             // Hae urlit yms yms
-            return this.ParseEvent('http://kalenteri.turku.fi/events/node/307620');
+            for (let i = 0; i < 20; i++) {
+                if (html !== undefined) {
+                  eventUrls.push($('#maincontent > div:nth-child(' + (i + 3) + ') > div > a', html).attr('href'));
+                }
+            }
+            console.log(eventUrls);
+            return Promise.all(
+                eventUrls.map(eventUrl => { // I learned the hard way to not use just "url" here. See the const at beginning
+                    return this.ParseEvent('https://pacific-atoll-18652.herokuapp.com/https://tapahtumainfo.fi' +  eventUrl);
+                })
+            )
+        })
+        .catch(err => {
+            console.log()
         })
     }
 
@@ -30,11 +42,22 @@ class Events extends React.Component {
         return rp(url)
         .then(html => {
 
+            let imgUrl = '';
+            console.log('https://tapahtumainfo.fi' + $('#eventImageSmall', html).attr('src'));
+            if ('https://tapahtumainfo.fi' + $('#eventImageSmall', html).attr('src') === 'https://tapahtumainfo.fiundefined' || 
+            'https://tapahtumainfo.fi' + $('#eventImageSmall', html).attr('src') === 'https://tapahtumainfo.fi') {
+                imgUrl = 'https://i.imgur.com/64x6C1i.png';
+            }
+            else {
+                imgUrl = 'https://tapahtumainfo.fi' + $('#eventImageSmall', html).attr('src');
+            }
+
             const newEvent = {
-                name: $('#l-content > div.event.node.node--event.view-mode-full.node--full.node--event--full > div.event__image--wrapper > div.event__image__content > div.event__image__content--bottom > div.event__title > h1', html).text(),
-                date: $('#l-content > div.event.node.node--event.view-mode-full.node--full.node--event--full > div.event__image--wrapper > div.event__image__content > div.event__image__content--bottom > div:nth-child(1)', html).text(),
-                imageUrl: $('#l-content > div.event.node.node--event.view-mode-full.node--full.node--event--full > div.event__image--wrapper > div.event__image > picture > source:nth-child(1)', html).attr('srcset'),
-                link: $('#l-content > div.event.node.node--event.view-mode-full.node--full.node--event--full > div.event__sidebar--top > div.event__website > a', html).attr('href')
+                name: $('#sivunotsikko', html).text(),
+                date: $('#ajankohta > time:nth-child(1)', html).text(),
+                imageUrl: imgUrl,
+                link: $('#lisatiedotlinkki', html).attr('href'),
+                key: $('#sivunotsikko', html).text()
             };
 
             this.setState({
@@ -65,7 +88,7 @@ class Events extends React.Component {
                 <h2>Tapahtumat paikassa Turku</h2>
                 <div>
                     {events}
-                    <EventCard 
+                    {/* <EventCard 
                         url="http://www.google.fi" 
                         date="1.2.2020" 
                         name="Kissanristiäiset" 
@@ -85,7 +108,7 @@ class Events extends React.Component {
                         name="April fules" 
                         imageUrl="https://compote.slate.com/images/26572c3a-0e51-4a9f-9049-b64e730ca75d.jpg"
                         rating={5}
-                    />
+                    /> */}
                 </div>
             </div>
         )
