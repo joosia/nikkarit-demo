@@ -7,7 +7,7 @@ const Header = () => {
    return (
       <Navbar className="banner" variant='dark' expand="lg">
          <Container>
-            <Navbar.Brand href="/">
+            <Navbar.Brand>
                <NavLink to="/">
                   <img
                      src="/bislenz_white.png"
