@@ -22,7 +22,8 @@ const Header = () => {
                <Navbar.Text>
                   <Form inline>
                      <Nav className="ml-4">
-                        <NavLink to="/login">LOGIN</NavLink>
+                        <NavLink to="/login">LOGIN </NavLink>
+                        <NavLink to="/tapahtumat">TAPAHTUMAT</NavLink>
                      </Nav>
                   </Form>
                </Navbar.Text>

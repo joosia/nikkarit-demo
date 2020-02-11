@@ -3,7 +3,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from "./components/Header"
 import DashboardPage from './components/DashboardPage';
-import TapahtumatPage from './components/TapahtumatPage';
+import TapahtumatPage from './containers/Events/Events';
 import ErrorPage from './components/ErrorPage';
 import { Container } from "react-bootstrap"
 
@@ -14,7 +14,7 @@ function App() {
          <Container>
             <Switch>
                <Route path="/" component={DashboardPage} exact={true} />
-               <Route path="/tapahtumat" component={TapahtumatPage} />
+               <Route path="/tapahtumat" component={TapahtumatPage}/>
                <Route component={ErrorPage} />
             </Switch>
          </Container>
