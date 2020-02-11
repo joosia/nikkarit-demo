@@ -1,34 +1,49 @@
 import React from 'react'
-import { Col, Row, Popover, OverlayTrigger } from 'react-bootstrap'
+import { Container, Col, Row, Popover, OverlayTrigger, Button, ButtonGroup, Spinner } from 'react-bootstrap'
+import LineGraph from './LineGraph'
+import LineGraphRecharts from './LineGraphRecharts'
 
-const GraafiContainer = () => {
-    return (
-        <Row className="shadow-sm bg-white py-2 my-3">
-            <Col className="align-items-center"><span className="mx-1 h4 font-weight-bold">Yöpymiset</span><i className="fas fa-chevron-down"></i></Col>
-            <Col className="col-1 text-right">
-                <OverlayTrigger overlay={
-                    <Popover>
+const GraafiContainer = ({ data }) => {
+
+   return (
+      <Row className="shadow-sm bg-white py-2 mb-3">
+         <Col>
+            <Row>
+               <Col className="align-items-center">
+                  <span className="mr-1 h4 font-weight-bold">Yöpymiset</span>
+                  <i className="fas fa-chevron-down"></i>
+               </Col>
+               <Col className="col-1 text-right">
+                  <OverlayTrigger overlay={
+                     <Popover>
                         <Popover.Content>
 
                         </Popover.Content>
-                    </Popover>
-                }>
-                    <i className="fas fa-info-circle bislenz-blue"></i>
-                </OverlayTrigger>
-            </Col>
-            <Col className="col-12 my-2">
-                <Row>
-                    <Col className="col-3">
-                        <Row>
-                            <Col className="bg-primary">Yhteensä</Col>
-                            <Col className="bg-secondary">Yksityiset</Col>
-                            <Col className="bg-primary">Julkiset</Col>
-                        </Row>
-                    </Col>
-                </Row>
-            </Col>
-        </Row>
-    )
+                     </Popover>
+                  }>
+                     <i className="fas fa-info-circle bislenz-blue"></i>
+                  </OverlayTrigger>
+               </Col>
+            </Row>
+            <Row className="my-1">
+               <Col>
+                  <ButtonGroup aria-label="Basic example">
+                     <Button className="rounded-0 bg-bislenz-blue text-white">Yhteensä</Button>
+                     <Button className="rounded-0">Julkiset</Button>
+                     <Button className="rounded-0">Yksityiset</Button>
+                  </ButtonGroup>
+               </Col>
+            </Row>
+            <Row className="h-100 justify-content-center">
+               {data.length === 0
+                  ? <Spinner animation="border" />
+                  : <LineGraphRecharts data={data} />
+               }
+               {/* /* <LineGraph arrivalsData={arrivalsData} accommodationData={accommodationData} /> */}
+            </Row>
+         </Col>
+      </Row >
+   )
 }
 
 export default GraafiContainer
