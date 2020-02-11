@@ -21,8 +21,6 @@ const Header = () => {
             <Navbar.Collapse className='justify-content-end' id="basic-navbar-nav">
                <Navbar.Text>
                   <Form inline>
-                     <FormControl type="text" placeholder="Etsi kaupunki" className="mr-sm-2" />
-                     <Button variant="light"><i className="fas fa-search"></i></Button>
                      <Nav className="ml-4">
                         <NavLink to="/login">LOGIN</NavLink>
                      </Nav>
