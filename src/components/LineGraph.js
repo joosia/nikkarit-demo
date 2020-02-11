@@ -64,6 +64,7 @@ const App = ({ arrivalsData, accommodationData }) => {
                         labels: { fontSize: 8 }
                      }}
                      data={accommodationData}
+                     y="yAccommodation"
                      scale={{ x: "time", y: "linear" }}
                      standalone={false}
                      // labels={({ datum }) => `Bar y: ${datum.y}`}
@@ -94,6 +95,7 @@ const App = ({ arrivalsData, accommodationData }) => {
                         data: { stroke: "#093E78", strokeWidth: 1 }
                      }}
                      data={arrivalsData}
+                     y="yArrivals"
                      // domain={{
                      //    x: tickValues,
                      //    y: [0, 5000000]
@@ -117,6 +119,7 @@ const App = ({ arrivalsData, accommodationData }) => {
                         labels: { fontSize: 8 }
                      }}
                      data={arrivalsData}
+                     y="yArrivals"
                      // labels={({ datum }) => `Scatter y: ${datum.y}`}
                      animate={{ onLoad: { duration: 300 } }}
                   />

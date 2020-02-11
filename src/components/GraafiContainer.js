@@ -1,9 +1,9 @@
 import React from 'react'
-import { Container, Col, Row, Popover, OverlayTrigger, Button, ButtonGroup, Spinner } from 'react-bootstrap'
+import { Col, Row, Popover, OverlayTrigger, Button, ButtonGroup, Spinner } from 'react-bootstrap'
 import LineGraph from './LineGraph'
 import LineGraphRecharts from './LineGraphRecharts'
 
-const GraafiContainer = ({ data }) => {
+const GraafiContainer = ({ data, data1, data2 }) => {
 
    return (
       <Row className="shadow-sm bg-white py-2 mb-3">
@@ -34,12 +34,14 @@ const GraafiContainer = ({ data }) => {
                   </ButtonGroup>
                </Col>
             </Row>
-            <Row className="h-100 justify-content-center">
-               {data.length === 0
-                  ? <Spinner animation="border" />
-                  : <LineGraphRecharts data={data} />
-               }
-               {/* /* <LineGraph arrivalsData={arrivalsData} accommodationData={accommodationData} /> */}
+            <Row>
+               <Col className="text-center">
+                  {data.length === 0
+                     ? <Spinner animation="border" />
+                     : <LineGraphRecharts data={data} />
+                  }
+                  {/* <LineGraph arrivalsData={data1} accommodationData={data2} /> */}
+               </Col>
             </Row>
          </Col>
       </Row >

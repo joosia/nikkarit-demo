@@ -13,7 +13,9 @@ const LineGraphRecharts = ({ data }) => {
                   top: 20, right: 20, bottom: 20, left: 20,
                }}
             >
-               <YAxis yAxisId="left" />
+               <YAxis yAxisId="left" 
+                  // ticks={[10000, 20, 200000, 250000, 300000, 350000, 400000, 450000, 500000]}
+               />
                <YAxis
                   yAxisId="right"
                   orientation="right"
