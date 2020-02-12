@@ -96,7 +96,7 @@ const getArrivalsData = async (area, country, monthsArray, data) => {
          // convert date strings
          obj.x = new Date(dataObj.key[2].replace("M", "-") + "-1").toLocaleString('fi-FI', { month: 'short' });
          obj.yArrivals = isNaN(parseInt(dataObj.values[0])) ? 0 : parseInt(dataObj.values[0]);
-         obj.amount = Math.floor(Math.random() * 5);
+         obj.amount = Math.floor(Math.random() * 25) + 1;
          parsedData.push(obj)
       });
       //console.log(parsedData)
@@ -133,7 +133,7 @@ const getAccommodationData = async (area, monthsArray, data) => {
          // convert date strings
          obj.x = new Date(dataObj.key[1].replace("M", "-") + "-1").toLocaleString('fi-FI', { month: 'short' });
          obj.yAccommodation = isNaN(parseInt(dataObj.values[0])) ? 0 : parseInt(dataObj.values[0]);
-         obj.amount = Math.floor(Math.random() * 5);
+         obj.amount = Math.floor(Math.random() * 25) + 1;
          parsedData.push(obj)
       });
       //console.log(parsedData)

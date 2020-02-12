@@ -40,7 +40,10 @@ const GraafiContainer = ({ data, data1, data2 }) => {
                      ? <Spinner animation="border" />
                      : <LineGraphRecharts data={data} />
                   }
-                  {/* <LineGraph arrivalsData={data1} accommodationData={data2} /> */}
+                  {data.length === 0
+                     ? <Spinner animation="border" />
+                     : <LineGraph arrivalsData={data1} accommodationData={data2} />
+                  }
                </Col>
             </Row>
          </Col>

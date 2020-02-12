@@ -19,10 +19,14 @@ const LineGraphRecharts = ({ data }) => {
                <YAxis
                   yAxisId="right"
                   orientation="right"
-                  ticks={[1000000, 2000000, 3000000, 4000000, 5000000, 6000000, 7000000, 8000000, 9000000, 10000000]}
-                  tickFormatter={(num) => `${num / 1000000}`}
+                  // ticks={[1000000, 2000000, 3000000, 4000000, 5000000, 6000000, 7000000, 8000000, 9000000, 10000000]}
+                  // tickFormatter={(num) => `${num / 1000000}`}
                />
-               <Tooltip />
+               <Tooltip 
+                  cursor={false}
+                  contentStyle={{background: "#FFD7CE", border: "none"}}
+                  animationDuration={200}
+               />
                <Legend />
                <Bar yAxisId="right" dataKey="yAccommodation" barSize={30} maxBarSize={40} fill="#EDEDED" />
                <Line
@@ -33,6 +37,7 @@ const LineGraphRecharts = ({ data }) => {
                   stroke={"#093E78"}
                   strokeWidth={1}
                   onClick={() => console.log("clicked")}
+                  type="monotone"
                />
                <XAxis dataKey="x" tickCount="12" padding={{ left: 40, right: 40 }} />
             </ComposedChart>

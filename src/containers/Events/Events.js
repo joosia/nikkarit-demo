@@ -3,6 +3,7 @@ import EventCard from '../../components/EventCard/EventCard';
 import rp from 'request-promise';
 import $ from 'cheerio';
 import classes from './Events.module.css';
+import uuid from 'uuid';
 
 class Events extends React.Component {
 
@@ -79,6 +80,7 @@ class Events extends React.Component {
                     name={event.name}
                     imageUrl={event.imageUrl}
                     rating={3.857}
+                    key={uuid()}
                 />
             );
         })
