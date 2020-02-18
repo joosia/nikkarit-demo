@@ -1,48 +1,68 @@
 import React from 'react';
-import { ResponsiveContainer, ComposedChart, Line, Area, Bar, XAxis, YAxis, ZAxis, Tooltip, Legend } from 'recharts';
+import { ResponsiveContainer, ComposedChart, Line, Bar, XAxis, YAxis, Tooltip, Legend, Scatter } from 'recharts';
 
-const LineGraphRecharts = ({ data }) => {
+const LineGraphRecharts = ({ data, dataTitle }) => {
    return (
       <div style={{ width: '100%', height: "50vh" }}>
          <ResponsiveContainer>
             <ComposedChart
-               width={500}
-               height={400}
                data={data}
-               margin={{
-                  top: 20, right: 20, bottom: 20, left: 20,
-               }}
             >
-               <YAxis yAxisId="left" 
-                  // ticks={[10000, 20, 200000, 250000, 300000, 350000, 400000, 450000, 500000]}
+               <YAxis
+                  yAxisId="left"
+                  style={{ fontSize: 13 }}
+                  tickSize={0}
                />
                <YAxis
                   yAxisId="right"
                   orientation="right"
-                  // ticks={[1000000, 2000000, 3000000, 4000000, 5000000, 6000000, 7000000, 8000000, 9000000, 10000000]}
-                  // tickFormatter={(num) => `${num / 1000000}`}
+                  style={{ fontSize: 13 }}
+                  tickSize={0}
                />
-               <Tooltip 
+               <Tooltip
                   cursor={false}
-                  contentStyle={{background: "#FFD7CE", border: "none"}}
+                  contentStyle={{ background: "#FFD7CE", border: "none" }}
                   animationDuration={200}
                />
                <Legend />
-               <Bar yAxisId="right" dataKey="yAccommodation" barSize={30} maxBarSize={40} fill="#EDEDED" />
+               <Bar
+                  name="Majoitusmyynti (€)"
+                  yAxisId="right"
+                  dataKey="yAccommodation"
+                  barSize={30}
+                  maxBarSize={40}
+                  fill="#EDEDED"
+                  animationDuration={400}
+               />
                <Line
+                  name={`${dataTitle} (lkm)`}
                   yAxisId="left"
                   dataKey="yArrivals"
                   dot={{ r: 15, fill: "#093E78", stroke: "none" }}
-                  activeDot={{ stroke: 'none', r: 15, fill: "#FF7B5F" }}
+                  activeDot={{ stroke: '#FF7B5F', r: 15, fill: "#FF7B5F" }}
                   stroke={"#093E78"}
-                  strokeWidth={1}
+                  strokeWidth={3}
                   onClick={() => console.log("clicked")}
                   type="monotone"
+                  animationDuration={400}
                />
-               <XAxis dataKey="x" tickCount="12" padding={{ left: 40, right: 40 }} />
+               {/* <Scatter
+                  name="Yöpymiset (lkm)"
+                  yAxisId="left"
+                  dataKey="yArrivals"
+                  fill="#093E78"
+                  line={{ stroke: "#093E78", strokeWidth: 3, lineType: "monotone" }}
+                  stroke={"#093E78"}
+                  activeDot={{ stroke: 'none', r: 15, fill: "#FF7B5F" }}
+               /> */}
+               <XAxis
+                  dataKey="x"
+                  tickCount="12"
+                  padding={{ left: 40, right: 40 }}
+                  tickSize={0} />
             </ComposedChart>
          </ResponsiveContainer>
-      </div>
+      </div >
    )
 }
 

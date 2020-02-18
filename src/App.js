@@ -11,7 +11,7 @@ function App() {
    return (
       <BrowserRouter>
          <Header />
-         <Container fluid className="p-5">
+         <Container>
             <Switch>
                <Route path="/" component={DashboardPage} exact={true} />
                <Route path="/tapahtumat" component={TapahtumatPage}/>

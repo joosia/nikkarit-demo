@@ -68,10 +68,16 @@ const getRudolfMetaData = async () => {
    }
 }
 
-const getArrivalsData = async (area, country, monthsArray, data) => {
+const getArrivalsData = async (area, country, year, data) => {
 
    const baseURL = "http://visitfinland.stat.fi/pxweb/api/v1/fi/VisitFinland";
    const arrivalsURL = "Majoitustilastot/visitfinland_matk_pxt_116n.px";
+
+   let monthsArray = [];
+   for (let i = 1; i <= 12; i++) {
+      monthsArray.push(i < 10 ? `${year}M0${i}` : `${year}M${i}`)
+   }
+
    const query = {
       "query": [
          { "code": "Alue", "selection": { "filter": "item", "values": [codes["alue"][area]] } },
@@ -99,17 +105,23 @@ const getArrivalsData = async (area, country, monthsArray, data) => {
          obj.amount = Math.floor(Math.random() * 25) + 1;
          parsedData.push(obj)
       });
-      //console.log(parsedData)
-      return parsedData
    } catch (e) {
       console.log("Something went wrong\n", e)
    }
+   //console.log(parsedData)
+   return parsedData
 }
 
-const getAccommodationData = async (area, monthsArray, data) => {
+const getAccommodationData = async (area, year, data) => {
 
    const baseURL = "http://visitfinland.stat.fi/pxweb/api/v1/fi/VisitFinland";
    const accommodationURL = "Majoitustilastot/visitfinland_matk_pxt_116x.px";
+
+   let monthsArray = [];
+   for (let i = 1; i <= 12; i++) {
+      monthsArray.push(i < 10 ? `${year}M0${i}` : `${year}M${i}`)
+   }
+
    const query = {
       "query": [
          { "code": "Alue", "selection": { "filter": "item", "values": [codes["alue"][area]] } },
@@ -136,11 +148,11 @@ const getAccommodationData = async (area, monthsArray, data) => {
          obj.amount = Math.floor(Math.random() * 25) + 1;
          parsedData.push(obj)
       });
-      //console.log(parsedData)
-      return parsedData
    } catch (e) {
       console.log("Something went wrong\n", e)
    }
+   //console.log(parsedData)
+   return parsedData
 }
 
 // getRudolfMetaData()
@@ -155,11 +167,6 @@ const getAccommodationData = async (area, monthsArray, data) => {
 //       });
 //    })
 
-
-// getArrivalsData("turku", "yhteensä", ["2019M01", "2019M02", "2019M03", "2019M04", "2019M05", "2019M06", "2019M07", "2019M08", "2019M09", "2019M10", "2019M11", "2019M12"], "yöpymiset lkm")
-
-// getAccommodationData("turku", ["2019M01", "2019M02", "2019M03", "2019M04", "2019M05", "2019M06", "2019M07", "2019M08", "2019M09", "2019M10", "2019M11", "2019M12"], "majoitusmyynti eur")
-
 const mergeDataArrays = (arr1, arr2) => {
    return arr1.map((item, i) => {
       if (item.id === arr2[i].id) {
@@ -169,4 +176,15 @@ const mergeDataArrays = (arr1, arr2) => {
    })
 }
 
-export { getArrivalsData, getAccommodationData, mergeDataArrays }
+const getCodesArray = (variable) => {
+   // returns keys of nested objects of rudolfCodes.json as an array
+   if (variable === "") {
+      return Object.keys(codes)
+   } else {
+      // returns values of selected nested object of rudolfCodes.json as an array
+      return Object.keys(codes[variable])
+   }
+
+}
+
+export { getArrivalsData, getAccommodationData, mergeDataArrays, getCodesArray }

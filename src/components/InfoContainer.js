@@ -1,16 +1,16 @@
 import React from 'react'
 import { Col, Row, OverlayTrigger, Popover } from 'react-bootstrap'
 
-const InfoContainer = ({ infoContainerData }) => {
+const InfoContainer = ({ infoContainerData, currentYear, onYearChange }) => {
    return (
       <Row className="shadow-sm py-2 my-3 bg-white">
 
          <Col>
             <Row className="my-2">
-               <Col className="align-items-center">
-                  <i className="fas fa-chevron-left"></i>
-                  <span className="mx-1 h4 font-weight-bold">2019</span>
-                  <i className="fas fa-chevron-right"></i>
+               <Col className="InfoContainer-currentYear">
+                  <i onClick={() => onYearChange(currentYear - 1)} className="fas fa-chevron-left"></i>
+                  <span className="mx-1 h4 font-weight-bold">{currentYear}</span>
+                  <i onClick={() => onYearChange(currentYear + 1)} className="fas fa-chevron-right"></i>
                </Col>
                <Col className="text-right">
                   <i className="fas fa-square-full mx-2 blue"></i>Julkiset
