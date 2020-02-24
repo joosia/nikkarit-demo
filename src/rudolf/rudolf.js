@@ -12,7 +12,7 @@ const codes = require("./rudolfCodes.json");
 // GET metadata from arrivals and accommodation tables
 const getRudolfMetaData = async () => {
 
-   const baseURL = "http://visitfinland.stat.fi/pxweb/api/v1/fi/VisitFinland";
+   const baseURL = "https://visitfinland.stat.fi/pxweb/api/v1/fi/VisitFinland";
    const arrivalsURL = "Majoitustilastot/visitfinland_matk_pxt_116n.px";
    const accommodationURL = "Majoitustilastot/visitfinland_matk_pxt_116x.px";
 
@@ -70,7 +70,7 @@ const getRudolfMetaData = async () => {
 
 const getArrivalsData = async (area, country, year, data) => {
 
-   const baseURL = "http://visitfinland.stat.fi/pxweb/api/v1/fi/VisitFinland";
+   const baseURL = "https://visitfinland.stat.fi/pxweb/api/v1/fi/VisitFinland";
    const arrivalsURL = "Majoitustilastot/visitfinland_matk_pxt_116n.px";
 
    let monthsArray = [];
@@ -114,7 +114,7 @@ const getArrivalsData = async (area, country, year, data) => {
 
 const getAccommodationData = async (area, year, data) => {
 
-   const baseURL = "http://visitfinland.stat.fi/pxweb/api/v1/fi/VisitFinland";
+   const baseURL = "https://visitfinland.stat.fi/pxweb/api/v1/fi/VisitFinland";
    const accommodationURL = "Majoitustilastot/visitfinland_matk_pxt_116x.px";
 
    let monthsArray = [];
@@ -155,18 +155,6 @@ const getAccommodationData = async (area, year, data) => {
    return parsedData
 }
 
-// getRudolfMetaData()
-//    .then(result => {
-//       const rudolfMetaData = JSON.stringify(result, null, 4);
-//       fs.writeFile("./rudolfCodes.json", rudolfMetaData, (err) => {
-//          if (err) {
-//             console.error(err);
-//             return;
-//          };
-//          console.log("File has been created");
-//       });
-//    })
-
 const mergeDataArrays = (arr1, arr2) => {
    return arr1.map((item, i) => {
       if (item.id === arr2[i].id) {
@@ -186,5 +174,17 @@ const getCodesArray = (variable) => {
    }
 
 }
+
+// getRudolfMetaData()
+//    .then(result => {
+//       const rudolfMetaData = JSON.stringify(result, null, 4);
+//       fs.writeFile("./rudolfCodes.json", rudolfMetaData, (err) => {
+//          if (err) {
+//             console.error(err);
+//             return;
+//          };
+//          console.log("File has been created");
+//       });
+//    })
 
 export { getArrivalsData, getAccommodationData, mergeDataArrays, getCodesArray }
